@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class bottify {
+    public static void main(String[] args){
+       
+            HashMap<String, String> songs = new HashMap<String, String>();
+            //create scanner to scan the file
+            
+           
+            StringBuilder blues = new StringBuilder();
+            StringBuilder hip = new StringBuilder();
+            StringBuilder rock = new StringBuilder();
+            StringBuilder pop = new StringBuilder();
+            StringBuilder soul = new StringBuilder();
+            int num = 0;
+            //temp array for songs when split into 3 parts - song name, artst, genre
+            String arr[] = {"White Crocs", "Jordan Ward", "R&B"};
+            String nah[] = {"Impossible", "Travis Scott", "Hip-hop"};
+            String yuh[] = {"4 Yourz", "J.Cole", "Hip-hop"};
+            String bruh[] = {"Pink Matter", "Frank Ocean ft. Andre 3000", "Soul"};
+            String type[] = {"Whole Lotta Love", "Led Zeppelin", "Rock"};
+            String miles[] = {"California Girls", "Katy Perry", "Pop"};
+            ArrayList<String[]> music = new ArrayList<String[]>();
+            music.add(arr);
+            music.add(nah);
+            music.add(yuh);
+            music.add(bruh);
+            music.add(type);
+            music.add(miles);
+            
+            //add first parts to each string i need for output
+            blues.append("R&B: ");
+            hip.append("Hip-hop: ");
+            rock.append("Rock: ");
+            pop.append("Pop: ");
+            soul.append("Soul: ");
+            //while loop to iterate through the text file
+           
+                //splits the input from the text file into the array
+                //*ps* think its wrong but whatever */
+                
+                //adds the song name as the key and gere as the value to the hashmap
+                for(int i = 0; i < music.size(); i++){
+                    
+                songs.put(music.get(i)[0], music.get(i)[2]);
+                //id statements that check what genre the song is and appends it to its correlating string builder
+                if(songs.get(music.get(i)[0]) == "R&B" ){
+                    for(String x: music.get(i)){
+                        blues.append(x).append(", ");
+                    }
+                }else if(songs.get(music.get(i)[0]) == "Hip-hop"){
+                    for(String x: music.get(i)){
+                        hip.append(x).append(", ");
+                    }
+                }else if(songs.get(music.get(i)[0]) == "Rock"){
+                    for(String x: music.get(i)){
+                        rock.append(x).append(", ");
+                    }
+                }else if(songs.get(music.get(i)[0]) == "Pop"){
+                    for(String x: music.get(i)){
+                        pop.append(x).append(", ");
+                    }
+                }else if(songs.get(music.get(i)[0]) == "Soul"){
+                    for(String x: music.get(i)){
+                        soul.append(x).append(", ");
+                    }
+                }
+            }
+                
+                //resets hashmap
+                songs.clear();
+                System.out.println(blues + "\n" + hip +"\n" + rock + "\n" + pop + "\n" + soul);
+            }
+}
